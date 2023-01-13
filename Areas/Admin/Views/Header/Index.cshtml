@@ -1,0 +1,43 @@
+﻿@model List<Header>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Button Text</th>
+                        <th>Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Header slide in Model)
+                    {
+                        <tr>
+                            <td>@slide.Id</td>
+                            <td><img src="~/img/slider/@slide.Image" style="width: 50px" /></td>
+                            <td>@slide.Title</td>
+                            <td>@slide.ButtonText</td>
+                            <td>
+                                <a asp-action="Info" asp-route-id="@slide.Id" class="btn btn-primary mr-1">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@slide.Id" class="btn btn-warning mr-1">
+                                    <i class="fas fa-fw fa-wrench"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@slide.Id" class="btn btn-danger mr-1">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

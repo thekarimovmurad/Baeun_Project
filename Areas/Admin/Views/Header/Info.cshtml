@@ -1,0 +1,11 @@
+﻿@model Header
+<div class="row">
+    <div class="col-md-8">
+        <img src="~/img/slider/@Model.Image" style="width:250px" class="d-block mb-3" />
+        <h4><b>Title:</b> @Model.Title</h4>
+        <h4><b>Subtitle:</b> @Html.Raw(Model.Subtitle)</h4>
+        <h4><b>Button:</b> @Model.ButtonText</h4>
+        <h4><b>Button Url:</b> @Model.ButtonUrl</h4>
+        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+    </div>
+</div>

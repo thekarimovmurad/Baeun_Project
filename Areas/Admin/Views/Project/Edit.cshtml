@@ -1,0 +1,78 @@
+﻿@model Project
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Add Project</h6>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Image" />
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label asp-for="Title"></label>
+                    <input type="text" class="form-control" asp-for="Title">
+                    <span class="text-danger small" asp-validation-for="Title"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="Subtitle"></label>
+                    <input type="text" class="form-control" asp-for="Subtitle">
+                    <span class="text-danger small" asp-validation-for="Subtitle"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="Company"></label>
+                    <input type="text" class="form-control" asp-for="Company">
+                    <span class="text-danger small" asp-validation-for="Company"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="Location"></label>
+                    <input type="text" class="form-control" asp-for="Location">
+                    <span class="text-danger small" asp-validation-for="Location"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="Year"></label>
+                    <input class="form-control" asp-for="Year">
+                    <span class="text-danger small" asp-validation-for="Year"></span>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label asp-for="ImageFile"></label>
+                    <div class="custom-file">
+                        <input accept="image/*" class="custom-file-input" asp-for="ImageFile">
+                        <label class="custom-file-label">
+                            Choose
+                            file...
+                        </label>
+                        <span class="text-danger small" asp-validation-for="ImageFile"></span>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <label asp-for="Description"></label>
+                    <textarea class="form-control" cols="30" rows="10" asp-for="Description"></textarea>
+                    <span class="text-danger small" asp-validation-for="Description"></span>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a asp-action="Index" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <style>
+        .ck-editor__editable {
+            min-height: 200px;
+        }
+    </style>
+}
+

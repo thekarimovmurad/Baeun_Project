@@ -1,0 +1,11 @@
+﻿@model About
+<div class="row">
+    <div class="col-md-8">
+        <img src="~/img/@Model.Image" style="width:250px" class="d-block mb-3" />
+        <h4><b>Title:</b> @Model.Title</h4>
+        <h4><b>Subtitle:</b> @Html.Raw(Model.Text)</h4>
+        <h4><b>About:</b> @Model.Office</h4>
+        <a asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary m-3">Go Back</a>
+        <a asp-action="Edit" class="btn btn-success m-3">Edit</a>
+    </div>
+</div>

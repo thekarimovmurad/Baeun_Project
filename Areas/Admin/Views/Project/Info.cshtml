@@ -1,0 +1,23 @@
+﻿@model Project
+<div class="row">
+    <div class="col-md-8">
+        <img src="~/img/projects/@Model.Image" style="width:300px" class="rounded d-block mb-3" />
+        <h4>Title: <b>@Model.Title</b></h4>
+        <h4>Subtitle: <b>@Model.Subtitle</b></h4>
+        <h4>Year: <b>@Model.Year.ToString("yyyy")</b></h4>
+        <h4>Company: <b>@Model.Company</b></h4>
+        <h4>Location: <b>@Model.Location</b></h4>
+        <div class="mb-5">
+            @Html.Raw(Model.Description)
+        </div>
+        <div class="row mb-5">
+            @foreach (ProjectImage item in Model.ProjectImages)
+            {
+                <div class="col-3 ml-3">
+                    <img src="~/img/projects/@item.Image" style="width:100%" class="rounded d-block mt-3" />
+                </div>
+            }
+        </div>
+        <a asp-action="Index" class="btn btn-primary">Go Back</a>
+    </div>
+</div>
